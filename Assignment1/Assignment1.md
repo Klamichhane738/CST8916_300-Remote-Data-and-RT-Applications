@@ -56,9 +56,9 @@ A list of all stocks that are accessible for monitoring can be obtained by using
 
 **GraphQL: Handling Data Requests and Updates**
 
-With the help of GraphQL, an open-source query language for APIs, we can query and retrieve just the data we need, and it also provides us with a comprehensive schema of every field the API supports [2].
+With the help of GraphQL, an open-source query language for APIs, we can query and retrieve just the data we need, and it also provides us with a comprehensive schema of every field the API supports (Odulio, 2019).
 
-*Mutations in GraphQL* allow us to alter data on the server, allowing us to do operations on the backend database such as adding, removing, or editing information. Users can consult the GraphQL schema to ascertain the precise fields needed for every action, as these modifications are defined there. [1]
+*Mutations in GraphQL* allow us to alter data on the server, allowing us to do operations on the backend database such as adding, removing, or editing information. Users can consult the GraphQL schema to ascertain the precise fields needed for every action, as these modifications are defined there (GeeksforGeeks, 2024).
 
 Note : Queries (to retrieve data) and Mutations (to modify data).
 
@@ -79,7 +79,7 @@ Unlike REST, which would return complete stock details, we can query simply the 
 
 *GraphQL Mutations (Similar to POST/PUT/DELETE Requests):*
 
-A big advantage of mutations in GraphQL over REST's POST and PUT methods is that with a mutation, we can change data and get the updated result in one go. This means we don’t need to make two separate requests—one to change the data and another to fetch the updated data—making it quicker and easy.
+A big advantage of mutations in GraphQL over REST's POST and PUT methods is that with a mutation, we can change data and get the updated result in one go. This means we don’t need to make two separate requests—one to change the data and another to fetch the updated data—making it quicker and easy (ChatGPT, 2024).
 
 - Example Mutation:
 
@@ -146,7 +146,7 @@ But in the case of a **WebSocket-based** stock app, after the first connection i
 In REST or GraphQL, the app (client) is required to ask the server every time for stock price updates by sending a request to the server. This means if the app wants updates in real time, it has to keep sending requests over every period of time, using more resources and possibly causing delays for each request. For example, the app might ask the server for the price of a stock (like AAPL) every 10 seconds, even if the price hasn’t changed which is frustrating.
 WebSockets:
 
-But in case of **WebSockets**, the app doesn’t require to keep asking for updates. Instead, the app subscribes to a stock (like AAPL or NVDA), and the server will automatically send updates whenever the price fluctuates. The app doesn’t have to request the data over and over which makes easy access to price updates, making the process faster and more efficient without delays.
+But in case of **WebSockets**, the app doesn’t require to keep asking for updates. Instead, the app subscribes to a stock (like AAPL or NVDA), and the server will automatically send updates whenever the price fluctuates. The app doesn’t have to request the data over and over which makes easy access to price updates, making the process faster and more efficient without delays (ChatGPT, 2024).
 
 **3. Effectiveness:**
 
@@ -193,7 +193,7 @@ The user receives the updated price from the server via the WebSocket connection
 
 4. Developer Ease 
     - **REST** is easy to use and suitable for simple tasks like watching user lists of stocks. REST endpoints makes easy for tasks like adding stocks or managing user accounts.
-    - **GraphQL** on other side can be used for more complicated queries where customers might only need certain data (such stock prices and corporate information, dividend information, company's future plans and projects.)
+    - **GraphQL** on other side can be used for more complicated queries where customers might only need certain data (such stock prices and corporate information, dividend information, company's future plans and projects.) Using GraphQL makes managing live data in a real-time stock app easier by offering effective, flexible queries and real-time changes. This makes it easier to create scalable, responsive apps that can withstand high traffic and quick changes in the market.(Devarkonda, 2018)
     - Instant stock price changes are made possible for users by **WebSockets**, which facilitate seamless real-time communication.
 
 ## Conclusion
@@ -205,12 +205,27 @@ Complex data can be efficiently and flexibly retrieved with GraphQL.
 Users can make sure they don't miss any pricing changes using WebSockets' speedy real-time updates.
 
 ## References
-1. https://www.geeksforgeeks.org/handling-data-updates-in-graphql/
-2. https://jaredpogi.medium.com/ive-seen-real-world-use-of-graphql-in-the-financial-sector-in-theory-it-looks-really-cool-that-5bc6865acbf
+
+1. ChatGPT. (2024, October 11). REST: Handling data requests and updates; GraphQL: Handling data requests and updates. OpenAI. Retrieved from https://chat.openai.com/
+2. ChatGPT. (2024, October 11). How WebSockets differ from REST and GraphQL. OpenAI. Retrieved from https://chat.openai.com/
+
+3. Devarkonda, S. (2018, December 10). How To Build A Real-Time App With GraphQL Subscriptions On Postgres (S. Devarkonda, Ed.) [Review of How To Build A Real-Time App With GraphQL Subscriptions On Postgres]. Https://Www.smashingmagazine.com/. https://www.smashingmagazine.com/2018/12/real-time-app-graphql-subscriptions-postgres/
+
+4. GeeksforGeeks. (2024, March 5). Handling Data Updates in GraphQL. GeeksforGeeks. https://www.geeksforgeeks.org/handling-data-updates-in-graphql/
+
+5. Odulio, J. (2019, April 12). I’ve seen real-world use of GraphQL in the financial sector, in theory, it looks really cool that…. Medium. https://jaredpogi.medium.com/ive-seen-real-world-use-of-graphql-in-the-financial-sector-in-theory-it-looks-really-cool-that-5bc6865acbf
+
+‌
+
+
+‌
 
 
 
+‌
 
+
+‌
 
 
 
