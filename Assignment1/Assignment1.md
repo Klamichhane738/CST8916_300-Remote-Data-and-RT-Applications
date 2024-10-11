@@ -56,7 +56,7 @@ A list of all stocks that are accessible for monitoring can be obtained by using
 
 **GraphQL: Handling Data Requests and Updates**
 
-With the help of GraphQL, an open-source query language for APIs, we can query and retrieve just the data we need, and it also provides us with a comprehensive schema of every field the API supports.
+With the help of GraphQL, an open-source query language for APIs, we can query and retrieve just the data we need, and it also provides us with a comprehensive schema of every field the API supports [2].
 
 *Mutations in GraphQL* allow us to alter data on the server, allowing us to do operations on the backend database such as adding, removing, or editing information. Users can consult the GraphQL schema to ascertain the precise fields needed for every action, as these modifications are defined there. [1]
 
@@ -157,9 +157,56 @@ Hence the overall system becomes less effective or efficient.
 And now, when taking **GraphQL** in consideration, a single connection stays open, which reduces the extra work of starting new connections and sending repeated requests to the server. And when the WebSocket connection is active, updates will begin coming constantly. This means stock prices get updated instantly, without needing to keep asking for updates. This is crucial in stock market apps, where fast performance and real-time accuracy are very important factor for users who need to track high-frequency trades closely and in bulk amount.
 
 
-For example: like day traders who might get affected with even small delays in updates..
+For example: like day traders who might get affected with even small delays in updates.
+
+## Section 3: Technology Recommendation and Justification
+
+After careful consideration from section 1 and section 2 for real time stock monitoring app, following technology is recommended.
+The recommended approach is **Hybrid Approach.**
+
+**1. REST/GraphQL for Data Requests:**
+For straightforward operations like adding or deleting stocks from a user's watchlist, use REST. REST is simple to use and effective for tasks that don't call for real-time updates.
+
+    Example: When a user needs to add a stock to their watchlist, they will send the server a POST /watchlist request along with the stock symbol (such as "AAPL").
+
+**2. GraphQL:** When the user need precise, detailed data, use GraphQL. GraphQL is efficient because it can receive the precise data required in a single request, such as the price, history, and business details, if the user wishes to retrieve detailed information about a stock.
+    
+    Example: User can request to fetch the stock's current price, its historical prices, and company details in just one request.
+
+**3.Provide real-time stock price updates using WebSockets.**
+The user receives the updated price from the server via the WebSocket connection as soon as AAPL's price changes.
+
+**Justification:**
+
+1. Real-time Requirements:
+
+    Users expects real-time notifications, as stock values fluctuate regularly. In order to provide these immediate updates without requiring the client to continuously poll (ask) for fresh data, WebSockets are needed. This enables real-time response.
+
+2. Data Complexity:
+
+    In the case of managing complicated data requests, GraphQL is appropriate. For example, if a user wishes to access extensive information on various stocks, like their prices, histories, and related data, GraphQL allows the client to request exactly what is needed. This increases efficiency and lowers data transfer.
+
+3. Scalability:
+
+    The system can scale better by using REST/GraphQL for non-real-time operations and WebSockets for real-time updates. With WebSockets, there's no need for continuous polling, which might overwhelm the server when user traffic grows.
+    To reduce bandwidth and server resources, the server only transmits updates when prices change, as compared with every client asking updates every second.
+
+4. Developer Ease 
+    - **REST** is easy to use and suitable for simple tasks like watching user lists of stocks. REST endpoints makes easy for tasks like adding stocks or managing user accounts.
+    - **GraphQL** on other side can be used for more complicated queries where customers might only need certain data (such stock prices and corporate information, dividend information, company's future plans and projects.)
+    - Instant stock price changes are made possible for users by **WebSockets**, which facilitate seamless real-time communication.
+
+## Conclusion
+
+The stock market software achieves the best of both worlds by fusing WebSockets and REST/GraphQL:
+
+Simple operations are efficiently handled via REST.
+Complex data can be efficiently and flexibly retrieved with GraphQL.
+Users can make sure they don't miss any pricing changes using WebSockets' speedy real-time updates.
+
 ## References
 1. https://www.geeksforgeeks.org/handling-data-updates-in-graphql/
+2. https://jaredpogi.medium.com/ive-seen-real-world-use-of-graphql-in-the-financial-sector-in-theory-it-looks-really-cool-that-5bc6865acbf
 
 
 
